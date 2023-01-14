@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<title>$GODOT_PROJECT_NAME</title>
+		<style>
+			body {
+				touch-action: none;
+				margin: 0;
+				border: 0 none;
+				padding: 0;
+				text-align: center;
+				background-color: #1c1a3a;;
+			}
+
+			#canvas {
+				display: block;
+				margin: 0;
+				color: white;
+			}
+
+			#canvas:focus {
+				outline: none;
+			}
+
+			.godot {
+				font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+				color: #e0e0e0;
+				background-color: #3b3943;
+				background-image: linear-gradient(to bottom, #403e48, #35333c);
+				border: 1px solid #45434e;
+				box-shadow: 0 0 1px 1px #2f2d35;
+			}
+
+			#status {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				display: block;
+				justify-content: center;
+				align-items: center;
+				/* don't consume click events - make children visible explicitly */
+				visibility: hidden;
+				background-color: #1c1a3a;
+			}
+
+			#loading {
+				visibility: visible;
+				align-content: center;
+				vertical-align: middle;
+				padding-top: 250px;
+				background-color: #1c1a3a;
+			}
+
+		</style>
+		$GODOT_HEAD_INCLUDE
+	</head>
+	<body>
+		<canvas id="canvas">
+			HTML5 canvas appears to be unsupported in the current browser.<br >
+			Please try updating or use a different browser.
+		</canvas>
+		<div id="status">
+			<image id="loading" src="data:image/png;base64,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" />
+		</div>
+
+		<script src="$GODOT_URL"></script>
+		<script>
+			const GODOT_CONFIG = $GODOT_CONFIG;
+			const engine = new Engine(GODOT_CONFIG);
+
+			(function () {
+				function displayFailureNotice(err) {
+					const msg = err.message || err;
+					console.error(msg);
+				}
+
+				engine
+					.startGame()
+					.then(
+						() => { document.getElementById('status').style.display = 'none'; },
+						displayFailureNotice
+					);
+			}());
+		</script>
+	</body>
+</html>
