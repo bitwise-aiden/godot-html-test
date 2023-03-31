@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Assembik's Ruquired"
-run/main_scene="res://source/game/game.tscn"
+config/name="godot-html-test"
+run/main_scene="res://source/game.tscn"
 config/icon="res://icon.png"
 
 [display]
